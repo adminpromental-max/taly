@@ -1,0 +1,535 @@
+/* =========================================================
+   Taly Homepage — brand palette + layout
+   Navy #0F2B46 | Sky #38A3E1 | Orange #E67E22 | Silver #F0F3F5 | White #FFF
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap');
+
+:root {
+  --taly-navy: #0F2B46;
+  --taly-sky: #38A3E1;
+  --taly-orange: #E67E22;
+  --taly-silver: #F0F3F5;
+  --taly-white: #FFFFFF;
+  --taly-navy-rgb: 15 43 70;
+  --taly-sky-rgb: 56 163 225;
+  --taly-display: 'Nunito', sans-serif;
+  --taly-body: 'Source Sans 3', sans-serif;
+}
+
+body.taly-home {
+  font-family: var(--taly-body);
+  color: var(--taly-navy);
+  background: var(--taly-white);
+}
+
+body.taly-home h1,
+body.taly-home h2,
+body.taly-home h3,
+body.taly-home .taly-brand-name {
+  font-family: var(--taly-display);
+}
+
+/* ---- Header overrides on Taly home ---- */
+body.taly-home .template-header.header-layout-1 {
+  z-index: 50;
+}
+
+body.taly-home .template-header.nav-white-color .header-navigation:not(.sticky-on) .nav-menu > ul > li > a,
+body.taly-home .template-header.nav-white-color .header-navigation:not(.sticky-on) .header-extra > li > a {
+  color: var(--taly-navy) !important;
+}
+
+body.taly-home .brand-logo img {
+  max-height: 44px;
+  width: auto;
+}
+
+body.taly-home .header-navigation.sticky-on {
+  box-shadow: 0 8px 24px rgb(var(--taly-navy-rgb) / 0.08);
+}
+
+.taly-footer-logo {
+  filter: none;
+}
+
+body.taly-home .footer-area .brand-logo img {
+  max-height: 48px;
+  width: auto;
+  /* Ensure navy logos remain readable on navy footer via white asset fallback */
+  background: transparent;
+}
+
+
+/* =========================================================
+   HERO — one composition, brand-first
+   ========================================================= */
+.taly-hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 85% 20%, rgb(var(--taly-sky-rgb) / 0.18), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 10% 85%, rgb(var(--taly-sky-rgb) / 0.1), transparent 50%),
+    linear-gradient(165deg, #ffffff 0%, #f0f3f5 48%, #e4eef6 100%);
+  padding: 7.5rem 0 4rem;
+}
+
+.taly-hero__glow {
+  position: absolute;
+  inset: auto -10% -20% auto;
+  width: min(58vw, 640px);
+  height: min(58vw, 640px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(var(--taly-sky-rgb) / 0.22), transparent 70%);
+  pointer-events: none;
+  animation: taly-float 10s ease-in-out infinite;
+}
+
+.taly-hero__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgb(var(--taly-navy-rgb) / 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--taly-navy-rgb) / 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
+  pointer-events: none;
+}
+
+.taly-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1.25rem;
+}
+
+.taly-hero__brand {
+  display: inline-block;
+  margin-bottom: 1.75rem;
+  animation: taly-rise 0.9s ease-out both;
+}
+
+.taly-hero__brand img {
+  width: min(280px, 62vw);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.taly-hero__title {
+  font-size: clamp(1.85rem, 4.2vw, 3.15rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--taly-navy);
+  margin: 0 0 1rem;
+  animation: taly-rise 0.9s ease-out 0.12s both;
+}
+
+.taly-hero__title span {
+  color: var(--taly-sky);
+}
+
+.taly-hero__lead {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.55;
+  color: rgb(var(--taly-navy-rgb) / 0.72);
+  max-width: 34rem;
+  margin: 0 auto 2rem;
+  animation: taly-rise 0.9s ease-out 0.22s both;
+}
+
+.taly-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+  animation: taly-rise 0.9s ease-out 0.32s both;
+}
+
+.taly-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--taly-display);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.95rem 1.55rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.taly-btn:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.taly-btn--primary {
+  background: var(--taly-sky);
+  color: var(--taly-white) !important;
+  box-shadow: 0 12px 28px rgb(var(--taly-sky-rgb) / 0.35);
+}
+
+.taly-btn--primary:hover {
+  color: var(--taly-white) !important;
+  box-shadow: 0 16px 32px rgb(var(--taly-sky-rgb) / 0.45);
+}
+
+.taly-btn--accent {
+  background: var(--taly-orange);
+  color: var(--taly-white) !important;
+  box-shadow: 0 12px 28px rgb(230 126 34 / 0.3);
+}
+
+.taly-btn--accent:hover {
+  color: var(--taly-white) !important;
+}
+
+.taly-btn--ghost {
+  background: transparent;
+  color: var(--taly-navy) !important;
+  border-color: rgb(var(--taly-navy-rgb) / 0.18);
+}
+
+.taly-btn--ghost:hover {
+  border-color: var(--taly-sky);
+  color: var(--taly-sky) !important;
+}
+
+.taly-hero__scroll {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  color: rgb(var(--taly-navy-rgb) / 0.45);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  animation: taly-bounce 2.2s ease-in-out infinite;
+}
+
+.taly-hero__scroll i {
+  color: var(--taly-sky);
+  font-size: 1rem;
+}
+
+/* =========================================================
+   TRACKS — SAT / ACT / EST
+   ========================================================= */
+.taly-tracks {
+  position: relative;
+  padding: 5.5rem 0 5rem;
+  background: var(--taly-silver);
+}
+
+.taly-tracks__intro {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto 3rem;
+  padding: 0 1.25rem;
+}
+
+.taly-tracks__eyebrow {
+  display: inline-block;
+  font-family: var(--taly-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--taly-sky);
+  margin-bottom: 0.75rem;
+}
+
+.taly-tracks__intro h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--taly-navy);
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.taly-tracks__intro p {
+  margin: 0;
+  color: rgb(var(--taly-navy-rgb) / 0.68);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.taly-tracks__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.35rem;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.taly-track {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: var(--taly-white);
+  border-radius: 1.35rem;
+  padding: 1.75rem 1.5rem 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgb(var(--taly-navy-rgb) / 0.06);
+  box-shadow: 0 10px 30px rgb(var(--taly-navy-rgb) / 0.04);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.taly-track::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--taly-sky);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.taly-track:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgb(var(--taly-navy-rgb) / 0.1);
+  border-color: rgb(var(--taly-sky-rgb) / 0.35);
+  color: inherit;
+  text-decoration: none;
+}
+
+.taly-track:hover::before {
+  transform: scaleX(1);
+}
+
+.taly-track:nth-child(2)::before {
+  background: var(--taly-navy);
+}
+
+.taly-track:nth-child(3)::before {
+  background: var(--taly-orange);
+}
+
+.taly-track__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 1rem;
+  background: rgb(var(--taly-sky-rgb) / 0.12);
+  color: var(--taly-sky);
+  font-family: var(--taly-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.15rem;
+}
+
+.taly-track:nth-child(2) .taly-track__badge {
+  background: rgb(var(--taly-navy-rgb) / 0.08);
+  color: var(--taly-navy);
+}
+
+.taly-track:nth-child(3) .taly-track__badge {
+  background: rgb(230 126 34 / 0.12);
+  color: var(--taly-orange);
+}
+
+.taly-track__name {
+  font-family: var(--taly-display);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--taly-navy);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.taly-track__desc {
+  flex: 1;
+  margin: 0 0 1.35rem;
+  color: rgb(var(--taly-navy-rgb) / 0.65);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.taly-track__meta {
+  list-style: none;
+  margin: 0 0 1.35rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.taly-track__meta li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  color: rgb(var(--taly-navy-rgb) / 0.78);
+}
+
+.taly-track__meta li i {
+  color: var(--taly-sky);
+  font-size: 0.85rem;
+}
+
+.taly-track:nth-child(3) .taly-track__meta li i {
+  color: var(--taly-orange);
+}
+
+.taly-track__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--taly-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--taly-sky);
+}
+
+.taly-track:nth-child(2) .taly-track__cta {
+  color: var(--taly-navy);
+}
+
+.taly-track:nth-child(3) .taly-track__cta {
+  color: var(--taly-orange);
+}
+
+.taly-track:hover .taly-track__cta i {
+  transform: translateX(4px);
+}
+
+.taly-track__cta i {
+  transition: transform 0.25s ease;
+}
+
+/* =========================================================
+   CLOSING BAND
+   ========================================================= */
+.taly-closing {
+  position: relative;
+  padding: 4.5rem 1.25rem;
+  background: var(--taly-navy);
+  color: var(--taly-white);
+  text-align: center;
+  overflow: hidden;
+}
+
+.taly-closing::before {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgb(var(--taly-sky-rgb) / 0.18);
+  top: -180px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.taly-closing__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.taly-closing h2 {
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  font-weight: 800;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.taly-closing p {
+  margin: 0 0 1.75rem;
+  color: rgb(255 255 255 / 0.78);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+/* =========================================================
+   Motions
+   ========================================================= */
+@keyframes taly-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes taly-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+
+@keyframes taly-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.55; }
+  50% { transform: translateX(-50%) translateY(6px); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .taly-hero__brand,
+  .taly-hero__title,
+  .taly-hero__lead,
+  .taly-hero__actions,
+  .taly-hero__glow,
+  .taly-hero__scroll,
+  .taly-track {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 991.98px) {
+  .taly-tracks__grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+  }
+
+  .taly-hero {
+    min-height: auto;
+    padding: 6.5rem 0 4.5rem;
+  }
+
+  .taly-hero__scroll {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .taly-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .taly-btn {
+    width: 100%;
+  }
+}

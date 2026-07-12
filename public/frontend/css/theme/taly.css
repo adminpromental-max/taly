@@ -1,0 +1,68 @@
+/* Taly brand theme */
+:root {
+  --taly-navy: #0F2B46;
+  --taly-sky: #38A3E1;
+  --taly-orange: #E67E22;
+  --taly-silver: #F0F3F5;
+  --taly-white: #FFFFFF;
+
+  --theme-clr: #38A3E1;
+  --theme-clr-rgb: 56 163 225;
+  --theme-clr-light-1: #b8dff5;
+  --theme-clr-deep-1: #e8f5fc;
+  --theme-clr-deep-2: #0F2B46;
+
+  --color-link: #38A3E1;
+  --color-theme-0: #38A3E1;
+  --plyr-color-main: #38A3E1;
+}
+
+*::-moz-selection {
+  background-color: var(--taly-sky) !important;
+  color: var(--taly-white) !important;
+}
+::-moz-selection {
+  background-color: var(--taly-sky) !important;
+  color: var(--taly-white) !important;
+}
+::selection {
+  background-color: var(--taly-sky) !important;
+  color: var(--taly-white) !important;
+}
+
+a:hover {
+  color: var(--taly-sky);
+}
+
+.color-bg-dark,
+.color-bg-black,
+.footer-area.footer-area-v2 {
+  background-color: var(--taly-navy) !important;
+}
+
+.template-btn,
+.btn-primary,
+.template-btn:hover,
+.template-btn:focus {
+  background-color: var(--taly-sky) !important;
+  border-color: var(--taly-sky) !important;
+  color: var(--taly-white) !important;
+}
+
+.template-btn:hover {
+  filter: brightness(0.95);
+}
+
+.sticky-header.sticky-on,
+.header-navigation.sticky-on {
+  background-color: var(--taly-white) !important;
+}
+
+.nav-menu ul li a:hover,
+.nav-menu ul li.active > a {
+  color: var(--taly-sky) !important;
+}
+
+.preloader {
+  background-color: var(--taly-white);
+}
