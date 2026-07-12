@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use App\Models\ApiKey;
+use App\Traits\ApiReturnFormatTrait;
+use Closure;
+use Illuminate\Http\Request;
+
+class CheckApiKeyMiddleware
+{
+    use ApiReturnFormatTrait;
+
+    public function handle(Request $request, Closure $next)
+    {
+        if ($request->hasHeader('apiKey')) {
+            $key = ApiKey::where('key', $request->header('apiKey'))->first();
+            if ($key) {
+                return $next($request);
+            } else {
+                return response()->json(['message' => 'apiKey is not Match'], 401);
+            }
+        } else {
+            return response()->json(['message' => 'apiKey is not provided'], 400);
+        }
+    }
+}
