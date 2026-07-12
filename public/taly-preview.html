@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taly | Homepage Preview</title>
+  <link rel="icon" href="frontend/img/taly/taly-icon.png">
+  <link rel="stylesheet" href="frontend/css/theme/taly.css">
+  <link rel="stylesheet" href="frontend/css/taly-home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .preview-nav {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 1.5rem;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .preview-nav img { height: 40px; width: auto; }
+    .preview-nav a {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      color: #0F2B46;
+      text-decoration: none;
+      margin-left: 1.25rem;
+      font-size: 0.95rem;
+    }
+    .preview-nav a.cta {
+      background: #38A3E1;
+      color: #fff !important;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+    }
+    .preview-banner {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0F2B46;
+      color: #fff;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.85rem;
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      z-index: 100;
+      box-shadow: 0 8px 24px rgba(15,43,70,.25);
+    }
+  </style>
+</head>
+<body class="taly-home">
+  <header class="preview-nav">
+    <img src="frontend/img/taly/taly-wordmark.png" alt="Taly">
+    <nav>
+      <a href="#tracks">Tracks</a>
+      <a href="#tracks">Courses</a>
+      <a class="cta" href="#signup">Start free</a>
+    </nav>
+  </header>
+
+  <section class="taly-hero">
+    <div class="taly-hero__glow" aria-hidden="true"></div>
+    <div class="taly-hero__grid" aria-hidden="true"></div>
+    <div class="taly-hero__inner">
+      <div class="taly-hero__brand">
+        <img src="frontend/img/taly/logo-slogan.png" alt="Taly — Your Journey to Academic Excellence" width="280">
+      </div>
+      <h1 class="taly-hero__title">Prep for <span>SAT</span>, <span>ACT</span> &amp; <span>EST</span></h1>
+      <p class="taly-hero__lead">Specialized courses that guide American School graduates toward university — with clarity, confidence, and results.</p>
+      <div class="taly-hero__actions">
+        <a href="#tracks" class="taly-btn taly-btn--primary">Explore your path <i class="fas fa-arrow-down"></i></a>
+        <a href="#signup" class="taly-btn taly-btn--accent">Start free</a>
+      </div>
+    </div>
+    <div class="taly-hero__scroll" aria-hidden="true"><span>Scroll</span><i class="fas fa-chevron-down"></i></div>
+  </section>
+
+  <section class="taly-tracks" id="tracks">
+    <div class="taly-tracks__intro">
+      <span class="taly-tracks__eyebrow">Choose your track</span>
+      <h2>Three paths. One goal: university readiness.</h2>
+      <p>Pick the exam you’re preparing for — every track is built for American School graduates aiming higher.</p>
+    </div>
+    <div class="taly-tracks__grid">
+      <a href="#" class="taly-track">
+        <span class="taly-track__badge">SAT</span>
+        <h3 class="taly-track__name">SAT Prep</h3>
+        <p class="taly-track__desc">Master Evidence-Based Reading & Writing and Math with structured lessons and timed practice.</p>
+        <ul class="taly-track__meta">
+          <li><i class="fas fa-check"></i> Reading & Writing</li>
+          <li><i class="fas fa-check"></i> Math (Algebra → Advanced)</li>
+          <li><i class="fas fa-check"></i> Full-length practice tests</li>
+        </ul>
+        <span class="taly-track__cta">View SAT courses <i class="fas fa-arrow-right"></i></span>
+      </a>
+      <a href="#" class="taly-track">
+        <span class="taly-track__badge">ACT</span>
+        <h3 class="taly-track__name">ACT Prep</h3>
+        <p class="taly-track__desc">Build speed and accuracy across English, Math, Reading, and Science — section by section.</p>
+        <ul class="taly-track__meta">
+          <li><i class="fas fa-check"></i> English & Reading</li>
+          <li><i class="fas fa-check"></i> Math & Science</li>
+          <li><i class="fas fa-check"></i> Pacing strategies</li>
+        </ul>
+        <span class="taly-track__cta">View ACT courses <i class="fas fa-arrow-right"></i></span>
+      </a>
+      <a href="#" class="taly-track">
+        <span class="taly-track__badge">EST</span>
+        <h3 class="taly-track__name">EST Prep</h3>
+        <p class="taly-track__desc">Targeted preparation for Egyptian Scholastic Test Literacy and Math with focused drills.</p>
+        <ul class="taly-track__meta">
+          <li><i class="fas fa-check"></i> Literacy skills</li>
+          <li><i class="fas fa-check"></i> Math foundations</li>
+          <li><i class="fas fa-check"></i> Exam-day readiness</li>
+        </ul>
+        <span class="taly-track__cta">View EST courses <i class="fas fa-arrow-right"></i></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="taly-closing" id="signup">
+    <div class="taly-closing__inner">
+      <h2>Your journey to academic excellence starts here.</h2>
+      <p>Join Taly and follow a clear path from diagnostic to exam day — with guidance built for SAT, ACT, and EST.</p>
+      <a href="#" class="taly-btn taly-btn--accent">Create your account <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <div class="preview-banner">Static preview · Laravel homepage is wired the same way</div>
+</body>
+</html>
