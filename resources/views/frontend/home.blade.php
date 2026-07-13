@@ -17,7 +17,13 @@
 
     @include('frontend.taly.tracks')
 
+    @include('frontend.taly.steps')
+
     @include('frontend.taly.closing')
 
     @include('frontend.layouts.footer')
 @endsection
+
+@push('js')
+    <script src="{{ static_asset('frontend/js/taly-home.js') }}"></script>
+@endpush

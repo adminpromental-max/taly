@@ -468,6 +468,572 @@ body.taly-home .footer-area .brand-logo img {
 }
 
 /* =========================================================
+   Shared section head
+   ========================================================= */
+.taly-section-head {
+  text-align: center;
+  max-width: 42rem;
+  margin: 0 auto 2.75rem;
+  padding: 0 1.25rem;
+}
+
+.taly-section-head--light h2,
+.taly-section-head--light p {
+  color: inherit;
+}
+
+.taly-section-head__eyebrow {
+  display: inline-block;
+  font-family: var(--taly-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--taly-sky);
+  margin-bottom: 0.75rem;
+}
+
+.taly-section-head h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.45rem);
+  font-weight: 800;
+  color: var(--taly-navy);
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.taly-section-head p {
+  margin: 0;
+  color: rgb(var(--taly-navy-rgb) / 0.68);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.taly-btn--sm {
+  font-size: 0.92rem;
+  padding: 0.75rem 1.25rem;
+}
+
+/* Hero extras */
+.taly-hero__eyebrow {
+  font-family: var(--taly-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--taly-sky);
+  margin: 0 0 0.85rem;
+  animation: taly-rise 0.9s ease-out 0.08s both;
+}
+
+.taly-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem 2rem;
+  margin: 0 0 2rem;
+  animation: taly-rise 0.9s ease-out 0.28s both;
+}
+
+.taly-hero__stat {
+  text-align: center;
+}
+
+.taly-hero__stat strong {
+  display: block;
+  font-family: var(--taly-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--taly-navy);
+  line-height: 1.1;
+}
+
+.taly-hero__stat span {
+  font-size: 0.85rem;
+  color: rgb(var(--taly-navy-rgb) / 0.6);
+}
+
+/* Chips */
+.taly-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.taly-chip-row--sm .taly-chip {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+}
+
+.taly-chip {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgb(var(--taly-sky-rgb) / 0.12);
+  color: var(--taly-sky);
+}
+
+.taly-chip--muted {
+  background: rgb(var(--taly-navy-rgb) / 0.06);
+  color: rgb(var(--taly-navy-rgb) / 0.72);
+}
+
+/* =========================================================
+   PROGRAMS — tabbed SAT / ACT / EST
+   ========================================================= */
+.taly-programs {
+  padding: 5rem 0 4rem;
+  background: var(--taly-white);
+}
+
+.taly-programs__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+}
+
+.taly-programs__tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.85rem 1.35rem;
+  border: 2px solid rgb(var(--taly-navy-rgb) / 0.08);
+  border-radius: 1rem;
+  background: var(--taly-white);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  font-family: inherit;
+}
+
+.taly-programs__tab:hover {
+  border-color: rgb(var(--taly-sky-rgb) / 0.4);
+  transform: translateY(-2px);
+}
+
+.taly-programs__tab.is-active {
+  border-color: var(--taly-sky);
+  background: rgb(var(--taly-sky-rgb) / 0.08);
+}
+
+.taly-programs__tab-code {
+  font-family: var(--taly-display);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--taly-navy);
+}
+
+.taly-programs__tab-name {
+  font-size: 0.78rem;
+  color: rgb(var(--taly-navy-rgb) / 0.6);
+}
+
+.taly-programs__panel {
+  display: none;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.taly-programs__panel.is-active {
+  display: block;
+  animation: taly-rise 0.45s ease-out;
+}
+
+.taly-programs__layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.taly-programs__overview {
+  background: var(--taly-silver);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  border-top: 4px solid var(--taly-sky);
+  position: sticky;
+  top: 6rem;
+}
+
+.taly-programs__overview--navy { border-top-color: var(--taly-navy); }
+.taly-programs__overview--orange { border-top-color: var(--taly-orange); }
+
+.taly-programs__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3rem;
+  height: 2rem;
+  padding: 0 0.65rem;
+  border-radius: 0.5rem;
+  background: var(--taly-white);
+  font-family: var(--taly-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--taly-sky);
+  margin-bottom: 1rem;
+}
+
+.taly-programs__overview h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--taly-navy);
+  margin: 0 0 0.85rem;
+  line-height: 1.3;
+}
+
+.taly-programs__intro {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgb(var(--taly-navy-rgb) / 0.72);
+  margin: 0 0 1.25rem;
+}
+
+.taly-programs__meta {
+  margin: 0 0 1.25rem;
+}
+
+.taly-programs__meta div {
+  margin-bottom: 0.85rem;
+}
+
+.taly-programs__meta dt {
+  font-family: var(--taly-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgb(var(--taly-navy-rgb) / 0.5);
+  margin-bottom: 0.2rem;
+}
+
+.taly-programs__meta dd {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgb(var(--taly-navy-rgb) / 0.82);
+}
+
+.taly-programs__sections {
+  margin-bottom: 1.15rem;
+}
+
+.taly-programs__sections-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgb(var(--taly-navy-rgb) / 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.taly-programs__includes {
+  list-style: none;
+  margin: 0 0 1.35rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.taly-programs__includes li {
+  font-size: 0.88rem;
+  color: rgb(var(--taly-navy-rgb) / 0.78);
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.taly-programs__includes i {
+  color: var(--taly-sky);
+  margin-top: 0.15rem;
+}
+
+.taly-programs__subjects-head h4 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--taly-navy);
+  margin: 0 0 0.35rem;
+}
+
+.taly-programs__subjects-head p {
+  margin: 0 0 1.25rem;
+  font-size: 0.92rem;
+  color: rgb(var(--taly-navy-rgb) / 0.62);
+}
+
+.taly-subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.taly-subject-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--taly-white);
+  border: 1px solid rgb(var(--taly-navy-rgb) / 0.08);
+  border-radius: 1.1rem;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  min-height: 100%;
+}
+
+.taly-subject-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgb(var(--taly-navy-rgb) / 0.08);
+  border-color: rgb(var(--taly-sky-rgb) / 0.35);
+  color: inherit;
+  text-decoration: none;
+}
+
+.taly-subject-card__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  background: rgb(var(--taly-sky-rgb) / 0.12);
+  color: var(--taly-sky);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+  font-size: 1.1rem;
+}
+
+.taly-subject-card h5 {
+  font-family: var(--taly-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--taly-navy);
+  margin: 0 0 0.45rem;
+}
+
+.taly-subject-card p {
+  flex: 1;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: rgb(var(--taly-navy-rgb) / 0.65);
+  margin: 0 0 0.85rem;
+}
+
+.taly-subject-card__link {
+  font-family: var(--taly-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--taly-sky);
+  margin-top: auto;
+}
+
+.taly-subject-card__link i {
+  transition: transform 0.2s;
+}
+
+.taly-subject-card:hover .taly-subject-card__link i {
+  transform: translateX(4px);
+}
+
+/* =========================================================
+   STRUCTURE diagram
+   ========================================================= */
+.taly-structure {
+  padding: 4rem 0;
+  background: var(--taly-navy);
+  color: var(--taly-white);
+}
+
+.taly-structure .taly-section-head h2 {
+  color: var(--taly-white);
+}
+
+.taly-structure .taly-section-head p {
+  color: rgb(255 255 255 / 0.72);
+}
+
+.taly-structure .taly-section-head__eyebrow {
+  color: var(--taly-sky);
+}
+
+.taly-structure__diagram {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.taly-structure__tree {
+  background: rgb(255 255 255 / 0.06);
+  border-radius: 1.15rem;
+  padding: 1.25rem;
+  border-top: 3px solid var(--taly-sky);
+}
+
+.taly-structure__tree--navy { border-top-color: rgb(255 255 255 / 0.5); }
+.taly-structure__tree--orange { border-top-color: var(--taly-orange); }
+
+.taly-structure__root {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(255 255 255 / 0.12);
+}
+
+.taly-structure__root i {
+  font-size: 1.25rem;
+  color: var(--taly-sky);
+  margin-top: 0.15rem;
+}
+
+.taly-structure__root strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.taly-structure__root span {
+  font-size: 0.78rem;
+  color: rgb(255 255 255 / 0.55);
+}
+
+.taly-structure__branch {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.taly-structure__branch li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.55rem;
+  align-items: center;
+  font-size: 0.85rem;
+  padding: 0.45rem 0.55rem;
+  background: rgb(255 255 255 / 0.04);
+  border-radius: 0.55rem;
+}
+
+.taly-structure__branch i {
+  color: var(--taly-sky);
+  width: 1rem;
+  text-align: center;
+}
+
+.taly-structure__branch em {
+  font-style: normal;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgb(255 255 255 / 0.45);
+}
+
+/* =========================================================
+   STEPS + FEATURES
+   ========================================================= */
+.taly-steps {
+  padding: 4.5rem 0;
+  background: var(--taly-silver);
+}
+
+.taly-steps__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.taly-step {
+  background: var(--taly-white);
+  border-radius: 1.1rem;
+  padding: 1.35rem;
+  border: 1px solid rgb(var(--taly-navy-rgb) / 0.06);
+}
+
+.taly-step__num {
+  display: inline-block;
+  font-family: var(--taly-display);
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: var(--taly-sky);
+  margin-bottom: 0.65rem;
+}
+
+.taly-step h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--taly-navy);
+  margin: 0 0 0.45rem;
+}
+
+.taly-step p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgb(var(--taly-navy-rgb) / 0.65);
+}
+
+.taly-features {
+  padding: 4rem 0 5rem;
+  background: var(--taly-white);
+}
+
+.taly-features__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.taly-feature {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.taly-feature__icon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 0.85rem;
+  border-radius: 1rem;
+  background: rgb(var(--taly-sky-rgb) / 0.12);
+  color: var(--taly-sky);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.taly-feature h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--taly-navy);
+  margin: 0 0 0.4rem;
+}
+
+.taly-feature p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgb(var(--taly-navy-rgb) / 0.62);
+}
+
+/* =========================================================
    Motions
    ========================================================= */
 @keyframes taly-rise {
@@ -508,6 +1074,24 @@ body.taly-home .footer-area .brand-logo img {
    Responsive
    ========================================================= */
 @media (max-width: 991.98px) {
+  .taly-programs__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .taly-programs__overview {
+    position: static;
+  }
+
+  .taly-structure__diagram {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+  }
+
+  .taly-steps__grid,
+  .taly-features__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .taly-tracks__grid {
     grid-template-columns: 1fr;
     max-width: 440px;
@@ -524,6 +1108,20 @@ body.taly-home .footer-area .brand-logo img {
 }
 
 @media (max-width: 575.98px) {
+  .taly-steps__grid,
+  .taly-features__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .taly-subjects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .taly-programs__tabs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .taly-hero__actions {
     flex-direction: column;
     align-items: stretch;

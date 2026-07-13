@@ -51,35 +51,22 @@ class FrontendController extends Controller
     JsonResponse|
     Application {
         try {
-            $tracks = [
-                [
-                    'slug'   => 'sat',
-                    'code'   => 'SAT',
-                    'name'   => 'SAT Prep',
-                    'desc'   => 'Master Evidence-Based Reading & Writing and Math with structured lessons and timed practice.',
-                    'points' => ['Reading & Writing', 'Math (Algebra → Advanced)', 'Full-length practice tests'],
-                    'url'    => route('courses') . '?track=sat',
-                ],
-                [
-                    'slug'   => 'act',
-                    'code'   => 'ACT',
-                    'name'   => 'ACT Prep',
-                    'desc'   => 'Build speed and accuracy across English, Math, Reading, and Science — section by section.',
-                    'points' => ['English & Reading', 'Math & Science', 'Pacing strategies'],
-                    'url'    => route('courses') . '?track=act',
-                ],
-                [
-                    'slug'   => 'est',
-                    'code'   => 'EST',
-                    'name'   => 'EST Prep',
-                    'desc'   => 'Targeted preparation for Egyptian Scholastic Test Literacy and Math with focused drills.',
-                    'points' => ['Literacy skills', 'Math foundations', 'Exam-day readiness'],
-                    'url'    => route('courses') . '?track=est',
-                ],
-            ];
+            $tracks = collect(config('taly_tracks.tracks', []))->map(function (array $track) {
+                $track['url'] = route('category.courses', $track['category_slug']);
+
+                $track['subjects'] = collect($track['subjects'] ?? [])->map(function (array $subject) {
+                    $subject['url'] = route('category.courses', $subject['slug']);
+
+                    return $subject;
+                })->all();
+
+                return $track;
+            })->all();
 
             return view('frontend.home', [
-                'tracks' => $tracks,
+                'tracks'            => $tracks,
+                'how_it_works'      => config('taly_tracks.how_it_works', []),
+                'platform_features' => config('taly_tracks.platform_features', []),
             ]);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()]);
